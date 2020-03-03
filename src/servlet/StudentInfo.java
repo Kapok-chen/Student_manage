@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +14,7 @@ import service.impl.StudentInfoServiceImpl;
 @WebServlet("/index")
 public class StudentInfo extends HttpServlet {
 
-	//´´½¨ÒµÎñ²ã¶ÔÏó
+	//åˆ›å»ºä¸šåŠ¡å±‚å¯¹è±¡
 	StudentInfoService sser = new StudentInfoServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,16 +23,16 @@ public class StudentInfo extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//ÉèÖÃÇëÇóµÄ±àÂë
+		//è®¾ç½®è¯·æ±‚çš„ç¼–ç 
 		req.setCharacterEncoding("UTF-8");
-		//ÉèÖÃÏìÓ¦µÄÊı¾İ¸ñÊ½
+		//è®¾ç½®å“åº”çš„æ•°æ®æ ¼å¼
 		resp.setContentType("text/html;charset=UTF-8");
 
 		List<entity.StudentInfo> lists = sser.isok();
-		//½«Êı¾İ±£´æµ½×÷ÓÃÓòÖĞ
+		//å°†æ•°æ®ä¿å­˜åˆ°ä½œç”¨åŸŸä¸­
 		req.setAttribute("lists",lists);
-		System.out.println("ÕâÊÇĞŞ¸Ä·ÖÖ§µÄÄÚÈİ");
-//		//Ò³ÃæÌø×ª
+		System.out.println("è¿™æ˜¯ä¿®æ”¹åˆ†æ”¯çš„å†…å®¹");
+//		//é¡µé¢è·³è½¬
 		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 
