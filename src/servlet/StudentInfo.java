@@ -32,6 +32,7 @@ public class StudentInfo extends HttpServlet {
 		List<entity.StudentInfo> lists = sser.isok();
 		//将数据保存到作用域中
 		req.setAttribute("lists",lists);
+		System.out.println(lists);
 //		//页面跳转
 		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
